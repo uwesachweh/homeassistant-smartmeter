@@ -146,6 +146,7 @@ class D0Reader(asyncio.Protocol):
         # Callback if ending byte found(complete message received)
         if END_CHAR in data:
             _LOGGER.debug("end found, run callback")
+            _LOGGER.debug("data: %s", self._data)
             # TODO: check CRC
             self._callback(self._data)
 
