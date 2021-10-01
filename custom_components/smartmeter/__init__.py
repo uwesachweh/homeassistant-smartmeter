@@ -96,7 +96,7 @@ class Meter():
 
         # Analyse and preprocess received data blob
         for line in data.splitlines(True):
-
+ _LOGGER.debug("data: %s", self.line)
             first_match = self.regex_data_set.search(line)
             if first_match:
                 address = first_match.group(1)
@@ -146,7 +146,7 @@ class D0Reader(asyncio.Protocol):
         # Callback if ending byte found(complete message received)
         if END_CHAR in data:
             _LOGGER.debug("end found, run callback")
-            _LOGGER.debug("data: %s", self._data)
+          #  _LOGGER.debug("data: %s", self._data)
             # TODO: check CRC
             self._callback(self._data)
 
