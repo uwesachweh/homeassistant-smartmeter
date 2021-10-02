@@ -96,6 +96,7 @@ class Meter():
 
         # Analyse and preprocess received data blob
         for line in data.splitlines(True):
+            
             first_match = self.regex_data_set.search(line)
             if first_match:
                 address = first_match.group(1)
