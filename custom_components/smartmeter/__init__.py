@@ -96,8 +96,8 @@ class Meter():
 
         # Analyse and preprocess received data blob
         for line in data.splitlines(True):
- _LOGGER.debug("data: %s", data)
             first_match = self.regex_data_set.search(line)
+             _LOGGER.debug("data: %s", first_match)
             if first_match:
                 address = first_match.group(1)
                 second_match = self.regex_data_set_data.search(first_match.group(2))
